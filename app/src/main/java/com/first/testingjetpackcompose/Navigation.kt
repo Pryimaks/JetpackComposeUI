@@ -19,8 +19,8 @@ fun Navigation(){
             LoginPageScreen(navController = navController)
         }
 
-        composable(Routes.Register.route) {
-            RegisterPageScreen(navController = navController)
+        composable(Routes.SignUp.route) {
+            SignUpPageScreen(navController = navController)
         }
 
     }

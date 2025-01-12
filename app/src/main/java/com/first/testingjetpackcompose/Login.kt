@@ -1,6 +1,7 @@
 package com.first.testingjetpackcompose
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -35,11 +36,13 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import com.first.testingjetpackcompose.ui.theme.Blue
+import com.first.testingjetpackcompose.ui.theme.SignUpState
 
 @Composable
 fun LoginHomeScreen(navController: NavHostController) {
@@ -137,7 +140,7 @@ fun LandingPageScreen(
                 Spacer(modifier = Modifier.size(16.dp))
 
                 Button(
-                    onClick = { navController.navigate(Routes.Register.route) },
+                    onClick = { navController.navigate(Routes.SignUp.route) },
                     modifier = Modifier.fillMaxWidth(),
                     shape = MaterialTheme.shapes.medium,
                     colors = buttonColors(Color.Cyan)
@@ -269,7 +272,7 @@ fun LoginPageScreen(navController: NavHostController) {
                 Text(text = "Don't have an account?")
 
                 TextButton(
-                    onClick = { navController.navigate(Routes.Register.route) }
+                    onClick = { navController.navigate(Routes.SignUp.route) }
                 ) {
                     Text(text = "Sign up")
 
@@ -284,129 +287,119 @@ fun LoginPageScreen(navController: NavHostController) {
 
 }
 
+
+
+//@Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun RegisterPageScreen(navController: NavHostController) {
+fun SignUpPageScreen(navController: NavHostController) {
+    val signUpState = SignUpState()
     Surface(
         color = Color.Blue,
         contentColor = Color.Yellow,
         modifier = Modifier.fillMaxSize()
     ) {
-
-        val (username, onUserNameChange) = remember {
-            mutableStateOf("")
-        }
-
-        val (password, onPasswordChange) = remember {
-            mutableStateOf("")
-        }
-
-        val (checked, onCheckedChange) = remember {
-            mutableStateOf(false)
-        }
-
+        
         Column(
-
+            modifier = Modifier.fillMaxSize()
         ) {
             Text(
-                text = "Register",
-                modifier = Modifier.padding(16.dp),
-                style = MaterialTheme.typography.bodyMedium
+                text = "Sign Up",
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.padding(16.dp)
             )
-
-            Spacer(modifier = Modifier.size(16.dp))
-
-            OutlinedTextField(
-                value = username,
-                onValueChange = onUserNameChange,
-                label = { Text(text = "UserName") },
-                leadingIcon = { Icon(painter = painterResource(id =
-                R.drawable.baseline_person_24),
-                    contentDescription = null) },
-
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp),
-                shape = MaterialTheme.shapes.medium
-            )
-
-            Spacer(modifier = Modifier.size(16.dp))
-
-            OutlinedTextField(
-                value = password,
-                onValueChange = onPasswordChange,
-                label = { Text(text = "Password") },
-                leadingIcon = { Icon(painter = painterResource(id =
-                R.drawable.baseline_lock_24),
-                    contentDescription = null) },
-
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp),
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
-                visualTransformation = PasswordVisualTransformation(),
-                shape = MaterialTheme.shapes.medium
-            )
-
-            Spacer(modifier = Modifier.size(16.dp))
-
-            Row(
-                modifier = Modifier.fillMaxWidth()
-                    .padding(16.dp),
-                horizontalArrangement = Arrangement.SpaceBetween
-
-            ){
-                Row{
-                    Checkbox(
-                        checked = checked,
-                        onCheckedChange = onCheckedChange
-                    )
-                    Spacer(modifier = Modifier.size(4.dp))
-                    Text(text = "Remember your password")
-                }
-
-                TextButton(
-                    onClick = {  }
-                ) {
-                    Text(text = "Forgot password")
-
-                }
-
+            Row(modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp)){
+                OutlinedTextField(
+                    value = signUpState.firstName,
+                    onValueChange = { signUpState.firstNameChange(it) },
+                    modifier = Modifier.weight(1f),
+                    shape = MaterialTheme.shapes.medium,
+                    label = { Text(text = "First Name") }
+                )
+                Spacer(modifier = Modifier.size(8.dp))
+                OutlinedTextField(
+                    value = signUpState.lastName,
+                    onValueChange = { signUpState.lastNameChange(it) },
+                    modifier = Modifier.weight(1f),
+                    shape = MaterialTheme.shapes.medium,
+                    label = { Text(text = "Last Name") }
+                )
             }
 
-            Spacer(modifier = Modifier.size(16.dp))
+            OutlinedTextField(
+                value = signUpState.emailAddress,
+                onValueChange = { signUpState.emailAddressChange(it) },
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
+                shape = MaterialTheme.shapes.medium,
+                label = { Text(text = "Email Address") }
+            )
+            Spacer(modifier = Modifier.size(8.dp))
+
+            OutlinedTextField(
+                value = signUpState.password,
+                onValueChange = { signUpState.password(it) },
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
+                shape = MaterialTheme.shapes.medium,
+                label = { Text(text = "Password") },
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                visualTransformation = PasswordVisualTransformation()
+            )
+
+            OutlinedTextField(
+                value = signUpState.confirmPassword,
+                onValueChange = { signUpState.confirmPasswordChange(it) },
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
+                shape = MaterialTheme.shapes.medium,
+                label = { Text(text = "Confirm Password") },
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                visualTransformation = PasswordVisualTransformation()
+            )
+
+            Spacer(modifier = Modifier.size(8.dp))
+
+            Row(
+                modifier = Modifier.padding(horizontal = 16.dp)
+
+            ) {
+                Checkbox(
+                    checked = signUpState.checked,
+                    onCheckedChange = {signUpState.checkedChange(it)}
+                )
+                Spacer(modifier = Modifier.size(4.dp))
+                Text(text = "Agree with privacy policy")
+
+            }
+            Spacer(modifier = Modifier.size(8.dp))
 
             Button(
                 onClick = {},
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp),
+                    .padding(horizontal = 16.dp),
                 shape = MaterialTheme.shapes.medium
+
             ) {
-                Text(text = "Register")
+                Text(text = "Sign Up")
+
             }
 
-            Spacer(modifier = Modifier.size(16.dp))
-
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .wrapContentSize(align = Alignment.BottomCenter)
-
-            ){
+            Row(modifier = Modifier.fillMaxWidth()
+                .padding(16.dp)
+                .wrapContentSize(align = Alignment.BottomCenter)){
                 Text(text = "Already have an account?")
+                Spacer(modifier = Modifier.size(8.dp))
 
-                TextButton(
-                    onClick = { navController.navigate(Routes.Login.route) }
-                ) {
-                    Text(text = "Sign In")
-
-                }
-
+                Text(
+                    text = "Sign In",
+                    modifier = Modifier.clickable {
+                        navController.navigate(Routes.Login.route)
+                    },
+                    color = MaterialTheme.colorScheme.primary
+                )
             }
 
         }
-
-
 
     }
 }
