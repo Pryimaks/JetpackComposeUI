@@ -16,6 +16,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults.buttonColors
 import androidx.compose.material3.Checkbox
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -30,7 +31,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.center
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -113,6 +116,9 @@ fun LandingPageScreen(
                 )
 
             }
+
+
+
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -121,7 +127,14 @@ fun LandingPageScreen(
 
             ) {
 
+                MainScreen()
+
+                Spacer(modifier = Modifier.size(16.dp))
+
+
+
                 Button(
+
                     onClick = {
                         navController.navigate(Routes.Login.route)
 
@@ -153,10 +166,14 @@ fun LandingPageScreen(
 
                 }
 
+                Spacer(modifier = Modifier.size(16.dp))
+
 
             }
 
+
         }
+
     }
 }
 

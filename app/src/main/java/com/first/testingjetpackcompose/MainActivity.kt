@@ -17,7 +17,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Navigation()
+            //MainScreen()
+           Navigation()
           //  LandingPageScreen()
 
 
