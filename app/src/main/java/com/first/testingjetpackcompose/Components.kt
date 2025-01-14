@@ -108,8 +108,6 @@ fun MainScreen(
         context = context
     )
 
-
-
 }
 
 @Composable

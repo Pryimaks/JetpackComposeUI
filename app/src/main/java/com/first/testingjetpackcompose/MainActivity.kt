@@ -13,6 +13,7 @@ import androidx.navigation.compose.rememberNavController
 import com.first.testingjetpackcompose.ui.theme.TestingJetpackComposeTheme
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -39,6 +40,7 @@ class MainActivity : ComponentActivity() {
 
              */
         }
+
     }
 }
 

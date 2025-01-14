@@ -58,6 +58,7 @@ fun LoginHomeScreen(navController: NavHostController) {
 fun LandingPageScreen(
     navController: NavController, modifier: Modifier = Modifier
 ){
+
     Surface(color = Color.Yellow) {
         Box(
             modifier = Modifier
@@ -131,7 +132,23 @@ fun LandingPageScreen(
 
                 Spacer(modifier = Modifier.size(16.dp))
 
+                Button(
 
+                    onClick = {
+                        navController.navigate(Routes.HomeScreen.route)
+
+                    },
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = MaterialTheme.shapes.medium
+
+                ) {
+
+                    Text(text = "All Screen Support Sizes",
+                        fontStyle = FontStyle.Normal,
+                        fontWeight = FontWeight.Bold
+                    )
+
+                }
 
                 Button(
 
