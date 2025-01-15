@@ -128,6 +128,26 @@ fun LandingPageScreen(
 
             ) {
 
+                Button(
+
+                    onClick = {
+                        navController.navigate(Routes.MainScreenSplash.route)
+
+                    },
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = MaterialTheme.shapes.medium
+
+                ) {
+
+                    Text(text = "Splash Screen First Type",
+                        fontStyle = FontStyle.Normal,
+                        fontWeight = FontWeight.Bold
+                    )
+
+                }
+
+                Spacer(modifier = Modifier.size(16.dp))
+
                 MainScreen()
 
                 Spacer(modifier = Modifier.size(16.dp))
