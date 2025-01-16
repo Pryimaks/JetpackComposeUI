@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TestingJetpackCompose</string>
+    <string name="movie_description">Iron Man is a hero and Tony Stark!!!\nThat\'s all!!!</string>
 </resources>

@@ -10,4 +10,6 @@ sealed class Routes(val route: String) {
     object HomeScreen: Routes("HomeScreen")
 
     object MainScreenSplash: Routes("MainScreenSplash")
+
+    object MovieScreen: Routes("MovieScreen")
 }

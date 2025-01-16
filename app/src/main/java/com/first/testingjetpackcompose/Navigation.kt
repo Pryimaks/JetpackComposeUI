@@ -60,6 +60,10 @@ fun Navigation(){
             MainScreenSplash(navController = navController)
         }
 
+        composable(Routes.MovieScreen.route){
+            MovieScreen()
+        }
+
     }
 }
 

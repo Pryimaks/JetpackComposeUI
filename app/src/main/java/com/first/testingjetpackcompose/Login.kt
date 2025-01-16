@@ -131,6 +131,26 @@ fun LandingPageScreen(
                 Button(
 
                     onClick = {
+                        navController.navigate(Routes.MovieScreen.route)
+
+                    },
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = MaterialTheme.shapes.medium
+
+                ) {
+
+                    Text(text = "Movie Screen Constraint Layout",
+                        fontStyle = FontStyle.Normal,
+                        fontWeight = FontWeight.Bold
+                    )
+
+                }
+
+                Spacer(modifier = Modifier.size(16.dp))
+
+                Button(
+
+                    onClick = {
                         navController.navigate(Routes.MainScreenSplash.route)
 
                     },
