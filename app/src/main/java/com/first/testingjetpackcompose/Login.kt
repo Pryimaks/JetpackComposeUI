@@ -90,7 +90,7 @@ fun LandingPageScreen(
         ) {
             Column(
                 modifier = Modifier
-                    .padding(50.dp)
+                    .padding(20.dp)
 
             ) {
                 Text(
@@ -110,10 +110,11 @@ fun LandingPageScreen(
                     fontStyle = FontStyle.Normal,
                     fontWeight = FontWeight.Bold
                 )
+
                 Image(
                     painter = painterResource(id = R.drawable.ic_launcher_foreground),
                     contentDescription = null,
-                    modifier = Modifier.size(340.dp)
+                    modifier = Modifier.size(240.dp)
                 )
 
             }
@@ -127,6 +128,26 @@ fun LandingPageScreen(
                     .wrapContentSize(align = Alignment.BottomCenter)
 
             ) {
+
+                Button(
+
+                    onClick = {
+                        navController.navigate(Routes.HomeCalculator.route)
+
+                    },
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = MaterialTheme.shapes.medium
+
+                ) {
+
+                    Text(text = "Calculator",
+                        fontStyle = FontStyle.Normal,
+                        fontWeight = FontWeight.Bold
+                    )
+
+                }
+
+                Spacer(modifier = Modifier.size(16.dp))
 
                 Button(
 

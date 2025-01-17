@@ -4,6 +4,7 @@ import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Typography
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
@@ -12,26 +13,49 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
-private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
-)
-
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40,
-
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.Black,
+    primary = Color(0xFF0A9396),
+    onPrimary = Color.White,
+    secondary = Color(0xFF005F73),
     onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color.White,
-
+    background = Color(0xFFEDF6F9),
+    onBackground = Color.Black,
+    surface = Color.White,
+    onSurface = Color.Black
 )
+
+// Dark color palette
+private val DarkColorScheme = darkColorScheme(
+    primary = Color(0xFF94D2BD),
+    onPrimary = Color.Black,
+    secondary = Color(0xFF0A9396),
+    onSecondary = Color.Black,
+    background = Color(0xFF001219),
+    onBackground = Color.White,
+    surface = Color(0xFF003549),
+    onSurface = Color.White
+)
+
+@Composable
+fun CalculatorTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable () -> Unit
+) {
+    val colorScheme = if (darkTheme) DarkColorScheme else LightColorScheme
+
+    MaterialTheme(
+        colorScheme = colorScheme,
+        typography = Typography(
+            bodyLarge = MaterialTheme.typography.bodyLarge.copy(
+                color = colorScheme.onBackground
+            ),
+            titleLarge = MaterialTheme.typography.titleLarge.copy(
+                color = colorScheme.primary
+            )
+        ),
+        content = content
+    )
+}
 
 @Composable
 fun TestingJetpackComposeTheme(

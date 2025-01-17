@@ -22,6 +22,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 
 
@@ -62,6 +63,12 @@ fun Navigation(){
 
         composable(Routes.MovieScreen.route){
             MovieScreen()
+        }
+
+        composable(Routes.HomeCalculator.route) {
+            HomeCalculator(
+                calculatorViewModel = viewModel()
+            )
         }
 
     }

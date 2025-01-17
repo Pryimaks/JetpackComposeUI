@@ -12,4 +12,6 @@ sealed class Routes(val route: String) {
     object MainScreenSplash: Routes("MainScreenSplash")
 
     object MovieScreen: Routes("MovieScreen")
+
+    object HomeCalculator: Routes("HomeCalculator")
 }

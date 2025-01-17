@@ -40,6 +40,7 @@ android {
 }
 
 dependencies {
+
     implementation(libs.androidx.window)
 implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.constraintlayout.compose)
