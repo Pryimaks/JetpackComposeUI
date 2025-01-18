@@ -246,6 +246,24 @@ fun LandingPageScreen(
 
                 Spacer(modifier = Modifier.size(16.dp))
 
+                Button(
+
+                    onClick = {
+                        navController.navigate(Routes.ScreenDetailsContent.route)
+
+                    },
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = MaterialTheme.shapes.medium
+
+                ) {
+
+                    Text(text = "Screen Details Content",
+                        fontStyle = FontStyle.Normal,
+                        fontWeight = FontWeight.Bold
+                    )
+
+                }
+
 
             }
 
