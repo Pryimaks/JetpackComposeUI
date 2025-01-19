@@ -26,6 +26,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
+import com.first.testingjetpackcompose.navigation.NestedNavigation
 
 
 enum class SplashState{
@@ -76,6 +77,14 @@ fun Navigation(){
 
         composable(Routes.ScreenDetailsContent.route){
             ScreenDetailsContent()
+        }
+
+        composable(Routes.NestedNavigation.route){
+            val avController = rememberNavController()
+            NestedNavigation(
+                navController = avController,
+                isLoggedIn = false
+            )
         }
 
     }

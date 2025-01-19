@@ -16,4 +16,6 @@ sealed class Routes(val route: String) {
     object HomeCalculator: Routes("HomeCalculator")
 
     object ScreenDetailsContent: Routes("ScreenDetailsContent")
+
+    object NestedNavigation: Routes("NestedNavigation")
 }
