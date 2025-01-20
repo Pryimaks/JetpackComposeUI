@@ -1,5 +1,6 @@
 package com.first.testingjetpackcompose
 
+import androidx.activity.viewModels
 import androidx.compose.animation.core.MutableTransitionState
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.tween
@@ -26,7 +27,11 @@ import androidx.navigation.compose.rememberNavController
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
+import androidx.paging.compose.collectAsLazyPagingItems
 import com.first.testingjetpackcompose.navigation.NestedNavigation
+import com.first.testingjetpackcompose.pagination.QuotesApplication
+import com.first.testingjetpackcompose.pagination.QuotesScreen
+import com.first.testingjetpackcompose.pagination.data.remote.models.modelsQuotes.Quotes
 
 
 enum class SplashState{
@@ -38,6 +43,7 @@ enum class SplashState{
 @Composable
 fun Navigation(){
     val navController = rememberNavController()
+
 
 
     NavHost(navController = navController, startDestination = Routes.Home.route) {
@@ -87,11 +93,13 @@ fun Navigation(){
             )
         }
 
+
     }
 }
 
 @Composable
 fun MainScreenSplash(navController: NavHostController) {
+
     val transitionState = remember {
         MutableTransitionState(SplashState.Shown)
     }

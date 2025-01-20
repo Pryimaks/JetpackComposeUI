@@ -18,4 +18,6 @@ sealed class Routes(val route: String) {
     object ScreenDetailsContent: Routes("ScreenDetailsContent")
 
     object NestedNavigation: Routes("NestedNavigation")
+
+    object QuotesScreen: Routes("QuotesScreen")
 }

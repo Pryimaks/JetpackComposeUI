@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("kotlinx-serialization")
 }
 
 android {
@@ -40,9 +41,8 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.window)
-implementation(libs.androidx.core.splashscreen)
+    implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.constraintlayout.compose)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -61,4 +61,15 @@ implementation(libs.androidx.core.splashscreen)
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Paging
+    implementation(libs.androidx.paging.compose)
+    implementation(libs.androidx.paging.runtime.ktx)
+
+    // Retrofit & Serialization
+    implementation(libs.retrofit) // Retrofit core
+    implementation(libs.retrofit2.kotlinx.serialization.converter) // Kotlin Serialization Converter
+    implementation(libs.okhttp) // OkHttp core
+    implementation(libs.logging.interceptor) // OkHttp logging interceptor
+    implementation(libs.kotlinx.serialization.json) // Kotlin Serialization JSON
 }
