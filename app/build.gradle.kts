@@ -69,7 +69,7 @@ dependencies {
     // Retrofit & Serialization
     implementation(libs.retrofit) // Retrofit core
     implementation(libs.retrofit2.kotlinx.serialization.converter) // Kotlin Serialization Converter
-    implementation(libs.okhttp) // OkHttp core
-    implementation(libs.logging.interceptor) // OkHttp logging interceptor
-    implementation(libs.kotlinx.serialization.json) // Kotlin Serialization JSON
+
+    implementation(libs.androidx.navigation.compose)
+
 }

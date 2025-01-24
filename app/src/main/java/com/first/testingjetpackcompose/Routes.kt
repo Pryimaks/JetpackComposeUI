@@ -20,4 +20,6 @@ sealed class Routes(val route: String) {
     object NestedNavigation: Routes("NestedNavigation")
 
     object QuotesScreen: Routes("QuotesScreen")
+
+    object MyNavigation: Routes("MyNavigation")
 }

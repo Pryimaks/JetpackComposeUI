@@ -18,7 +18,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.first.testingjetpackcompose.pagination.QuotesScreen
 import com.first.testingjetpackcompose.ui.theme.TestingJetpackComposeTheme
-
+import com.first.testingjetpackcompose.ui.theme.login.LoginScreen
 
 
 class MainActivity : ComponentActivity() {
@@ -50,8 +50,13 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             //
-            //Navigation()
-
+        // Navigation()
+            val navController = rememberNavController()
+            MyNavigation(
+                navHostController = navController
+            )
+           // LoginScreen()
+/*
             val quotesViewModel: QuotesViewModel by viewModels()
             val quotesPagingItems = quotesViewModel.quotes.collectAsLazyPagingItems()
             Surface(
@@ -62,6 +67,8 @@ class MainActivity : ComponentActivity() {
                 QuotesScreen(quotesPagingItems)
 
             }
+
+ */
 
             //MainScreen()
 

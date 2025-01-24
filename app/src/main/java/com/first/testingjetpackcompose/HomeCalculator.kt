@@ -54,14 +54,13 @@ import com.first.testingjetpackcompose.ui.theme.LightGrey
 @Composable
 fun HomeCalculator(calculatorViewModel: CalculatorViewModel?){
 
-    val uiState = calculatorViewModel?.uiState
-    val contentMargin = 16.dp
+
 
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .background(LightGrey)
-                .padding(contentMargin),
+                .padding(16.dp),
                 verticalArrangement = Arrangement.SpaceBetween,
 
         ) {
@@ -74,20 +73,20 @@ fun HomeCalculator(calculatorViewModel: CalculatorViewModel?){
             ) {
                 Spacer(modifier = Modifier.size(250.dp))
                 Text(
-                    text = uiState?.infix ?: "-20+60/-5*(20-5)",
+                    text = calculatorViewModel?.uiState?.infix ?: "-20+60/-5*(20-5)",
                     style = MaterialTheme.typography.bodyLarge,
                     fontWeight = FontWeight.Black
                 )
 
-                Spacer(modifier = Modifier.size(contentMargin))
+                Spacer(modifier = Modifier.size(16.dp))
 
                 Text(
-                    text = uiState?.result ?: "-200",
+                    text = calculatorViewModel?.uiState?.result ?: "-200",
                     style = MaterialTheme.typography.bodyMedium,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.align(Alignment.End)
                 )
-                Spacer(modifier = Modifier.size(contentMargin))
+                Spacer(modifier = Modifier.size(16.dp))
 
             }
 
@@ -99,7 +98,7 @@ Column{
         Row(
             modifier = Modifier.fillMaxWidth()
         ) {
-            Spacer(modifier = Modifier.size(contentMargin))
+            Spacer(modifier = Modifier.size(16.dp))
 
 
             CharacterItem(
@@ -112,7 +111,7 @@ Column{
 
             }
 
-            Spacer(modifier = Modifier.size(contentMargin))
+            Spacer(modifier = Modifier.size(16.dp))
 
             CharacterItem(
                 char = ")",
@@ -124,11 +123,11 @@ Column{
 
             }
 
-            Spacer(modifier = Modifier.size(contentMargin))
+            Spacer(modifier = Modifier.size(16.dp))
 
         }
 
-        Spacer(modifier = Modifier.size(contentMargin))
+        Spacer(modifier = Modifier.size(16.dp))
 
 
 
@@ -149,7 +148,7 @@ Column{
                     CharacterItem(
                         char = number,
                         modifier = Modifier
-                            .padding(contentMargin)
+                            .padding(16.dp)
                     ) {
                         if (number != "C") {
                             calculatorViewModel?.onInfixChange(number)
@@ -199,8 +198,8 @@ Column{
                         .height(50.dp)
                         .constrainAs(division) {
                             top.linkTo(parent.top)
-                            start.linkTo(minus.end, contentMargin)
-                            end.linkTo(parent.end, contentMargin)
+                            start.linkTo(minus.end, 16.dp)
+                            end.linkTo(parent.end, 16.dp)
 
                         }
                         .aspectRatio(1f),
@@ -217,7 +216,7 @@ Column{
                     modifier = Modifier
                         .height(50.dp)
                         .constrainAs(multiplication) {
-                            top.linkTo(division.bottom, contentMargin)
+                            top.linkTo(division.bottom, 16.dp)
                             start.linkTo(addition.end)
                             end.linkTo(parent.end)
                             bottom.linkTo(power.top)
@@ -237,9 +236,9 @@ Column{
                     modifier = Modifier
                         .height(50.dp)
                         .constrainAs(power) {
-                            top.linkTo(multiplication.bottom, contentMargin)
-                            start.linkTo(addition.end, contentMargin)
-                            end.linkTo(parent.end, contentMargin)
+                            top.linkTo(multiplication.bottom, 16.dp)
+                            start.linkTo(addition.end, 16.dp)
+                            end.linkTo(parent.end, 16.dp)
                             bottom.linkTo(equal.top)
 
                         }
@@ -257,10 +256,10 @@ Column{
                     modifier = Modifier
                         .width(50.dp)
                         .constrainAs(addition) {
-                            top.linkTo(minus.bottom, contentMargin)
+                            top.linkTo(minus.bottom, 16.dp)
                             start.linkTo(parent.start)
                             end.linkTo(multiplication.start)
-                            bottom.linkTo(equal.top, contentMargin)
+                            bottom.linkTo(equal.top, 16.dp)
 
                         }
                         .aspectRatio(1f / 2f),
@@ -277,9 +276,9 @@ Column{
                     modifier = Modifier
                         .height(50.dp)
                         .constrainAs(equal) {
-                            top.linkTo(power.bottom, contentMargin)
+                            top.linkTo(power.bottom, 16.dp)
                             start.linkTo(parent.start)
-                            end.linkTo(parent.end, contentMargin)
+                            end.linkTo(parent.end, 16.dp)
                             bottom.linkTo(parent.bottom)
 
                         }

@@ -29,7 +29,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.first.testingjetpackcompose.navigation.NestedNavigation
-import com.first.testingjetpackcompose.pagination.QuotesApplication
+//import com.first.testingjetpackcompose.pagination.QuotesApplication
 import com.first.testingjetpackcompose.pagination.QuotesScreen
 import com.first.testingjetpackcompose.pagination.data.remote.models.modelsQuotes.Quotes
 
@@ -90,6 +90,12 @@ fun Navigation(){
             NestedNavigation(
                 navController = avController,
                 isLoggedIn = false
+            )
+        }
+
+        composable(Routes.MyNavigation.route){
+            MyNavigation(
+                navHostController = navController
             )
         }
 

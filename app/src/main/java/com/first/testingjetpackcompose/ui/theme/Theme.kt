@@ -21,7 +21,8 @@ private val LightColorScheme = lightColorScheme(
     background = Color(0xFFEDF6F9),
     onBackground = Color.Black,
     surface = Color.White,
-    onSurface = Color.Black
+    onSurface = Color.Black,
+    tertiary = Brown
 )
 
 // Dark color palette
@@ -33,7 +34,8 @@ private val DarkColorScheme = darkColorScheme(
     background = Color(0xFF001219),
     onBackground = Color.White,
     surface = Color(0xFF003549),
-    onSurface = Color.White
+    onSurface = Color.White,
+    tertiary = Brown
 )
 
 @Composable
@@ -67,7 +69,8 @@ fun TestingJetpackComposeTheme(
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+            if (darkTheme) dynamicDarkColorScheme(context)
+            else dynamicLightColorScheme(context)
         }
 
         darkTheme -> DarkColorScheme

@@ -284,6 +284,26 @@ fun LandingPageScreen(
 
                 }
 
+                Spacer(modifier = Modifier.size(16.dp))
+
+                Button(
+
+                    onClick = {
+                        navController.navigate(Routes.MyNavigation.route)
+
+                    },
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = MaterialTheme.shapes.medium
+
+                ) {
+
+                    Text(text = "LoginAndSignUpSystem Navigation",
+                        fontStyle = FontStyle.Normal,
+                        fontWeight = FontWeight.Bold
+                    )
+
+                }
+
 
             }
 

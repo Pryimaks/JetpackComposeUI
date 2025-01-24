@@ -1,5 +1,7 @@
 package com.first.testingjetpackcompose
 
+import retrofit2.internal.EverythingIsNonNull
+import java.lang.reflect.GenericArrayType
 import kotlin.math.pow
 import java.util.ArrayDeque
 import java.util.Stack
@@ -130,7 +132,7 @@ class ArithmeticEvaluation{
         else -> true
     }
 
-    fun evaluation(string: String): Double{
+    fun evaluation(string: String): Any{
 
         var str = ""
 
@@ -140,10 +142,14 @@ class ArithmeticEvaluation{
 
             if(notOperator(ch) && ch != ' '){
                 str += ch
-            } else if (ch == ' ' && str != ""){
-                stack.push(str.replace('n', '-').toDouble())
+            } else if (ch == ' ' && str != "") {
+
+             stack.push(str.replace('n', '-').toDouble())
                 str = ""
-            } else if (!notOperator(ch)){
+
+            }
+
+            else if (!notOperator(ch)){
                 val val1 = stack.pop()
                 val val2 = stack.pop()
 
@@ -160,8 +166,9 @@ class ArithmeticEvaluation{
 
         }
 
-        return stack.pop()
+        val result = stack.pop()
 
+        return if (result % 1 == 0.0) result.toInt() else result
     }
 
 }
@@ -173,3 +180,4 @@ fun <T> ArrayDeque<T>.pop() = removeLastOrNull()
 fun <T> ArrayDeque<T>.peek() = lastOrNull()
 
  */
+
