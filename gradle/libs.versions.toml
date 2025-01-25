@@ -20,6 +20,9 @@ pagingCompose = "3.3.5"
 retrofit = "2.9.0"
 retrofit2KotlinxSerializationConverter = "0.8.0"
 window = "1.3.0"
+materialIconsExtendedAndroid = "1.6.3"
+coilCompose = "2.6.0"
+datastorePreferences = "1.1.1"
 
 [libraries]
 androidx-constraintlayout-compose = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "constraintlayoutCompose" }
@@ -55,6 +58,10 @@ retrofit = { module = "com.squareup.retrofit2:retrofit" }
 retrofit2-kotlinx-serialization-compose = { module = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-compose" }
 retrofit2-kotlinx-serialization-converter = { module = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter", version.ref = "retrofit2KotlinxSerializationConverter" }
 retrofit2-retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+androidx-material-icons-extended-android = { module = "androidx.compose.material:material-icons-extended-android", version.ref = "materialIconsExtendedAndroid" }
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }
+androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleRuntimeKtx" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -72,4 +72,12 @@ dependencies {
 
     implementation(libs.androidx.navigation.compose)
 
+
+    //
+
+    implementation(libs.androidx.material.icons.extended.android)
+    implementation(libs.coil.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.datastore.preferences)
+
 }
