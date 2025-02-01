@@ -35,4 +35,5 @@ val Typography = Typography(
     */
 )
 
-val pacificoFont = FontFamily(Font(R.font.pacifico))
+val pacificoFont = FontFamily.SansSerif
+

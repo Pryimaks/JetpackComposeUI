@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.paging.compose.collectAsLazyPagingItems
+import com.first.testingjetpackcompose.foodia.foodiathemeui.details.home.Feed
 import com.first.testingjetpackcompose.navigation.NestedNavigation
 //import com.first.testingjetpackcompose.pagination.QuotesApplication
 import com.first.testingjetpackcompose.pagination.QuotesScreen
@@ -96,6 +97,12 @@ fun Navigation(){
         composable(Routes.MyNavigation.route){
             MyNavigation(
                 navHostController = navController
+            )
+        }
+
+        composable(Routes.Feed.route){
+            Feed(
+                onFoodClick = {}
             )
         }
 

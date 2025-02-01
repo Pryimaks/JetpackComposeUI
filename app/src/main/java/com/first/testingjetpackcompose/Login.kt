@@ -304,6 +304,26 @@ fun LandingPageScreen(
 
                 }
 
+                Spacer(modifier = Modifier.size(16.dp))
+
+                Button(
+
+                    onClick = {
+                        navController.navigate(Routes.Feed.route)
+
+                    },
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = MaterialTheme.shapes.medium
+
+                ) {
+
+                    Text(text = "Feed",
+                        fontStyle = FontStyle.Normal,
+                        fontWeight = FontWeight.Bold
+                    )
+
+                }
+
 
             }
 

@@ -8,6 +8,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.windowInsetsTopHeight
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -17,6 +20,9 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.first.testingjetpackcompose.foodia.foodiathemeui.details.components.DestinationBar
+import com.first.testingjetpackcompose.foodia.foodiathemeui.details.components.FilterBar
+import com.first.testingjetpackcompose.foodia.foodiathemeui.details.components.FoodCollectionComp
 import com.first.testingjetpackcompose.foodia.model.Filter
 import com.first.testingjetpackcompose.foodia.model.FoodCollection
 import com.first.testingjetpackcompose.foodia.model.FoodRepo
@@ -41,6 +47,11 @@ fun Feed(
 
     }
 
+    Feed(foodCollection = foodCollection,
+        filters = filters,
+        onFoodClick = onFoodClick,
+        modifier = modifier)
+
 }
 
 @Composable
@@ -62,6 +73,13 @@ private fun Feed(
         Box(
 
         ){
+            FoodCollectionList(
+                foodCollection = foodCollection,
+                filters = filters,
+                onFoodClick = onFoodClick
+            )
+
+            DestinationBar()
 
         }
 
@@ -102,7 +120,36 @@ private fun FoodCollectionList(
                         )
                     )
                 )
+
+                FilterBar(
+                    filter = filters
+                ) {
+
+                    filtersVisible = true
+
+                }
+
             }
+
+
+            itemsIndexed(
+                foodCollection
+            ){
+
+                index: Int, foodCollection: FoodCollection ->
+
+                if (index > 0){
+                    HorizontalDivider(thickness = 2.dp)
+                }
+
+                FoodCollectionComp(
+                    foodCollection = foodCollection,
+                    onFoodClick = onFoodClick
+                )
+
+            }
+
+
         }
 
     }
